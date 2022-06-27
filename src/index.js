@@ -1,5 +1,4 @@
 import './styles/main.scss';
-import { projectList } from './modules/projectList';
-import { createProject } from './modules/createProject';
+import { projectCreation } from './modules/projectCreation';
 
-const projects = projectList;
+const projCreate = projectCreation;
