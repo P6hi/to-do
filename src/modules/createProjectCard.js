@@ -2,6 +2,7 @@ import { elementCreator } from "./elementCreator";
 import { removeProject } from "./removeProject";
 
 export function createProjectCard(projectList, project, index) {
+    const main = document.querySelector('main');
     const container = elementCreator('div', 'project-container');
     const projectHeader = elementCreator('h2', 'project-header', project.title);
     const removeBtn = elementCreator('button', 'remove-btn', 'Delete Project');
@@ -11,5 +12,5 @@ export function createProjectCard(projectList, project, index) {
     removeBtn.addEventListener('click', () => {
         removeProject(projectList, index, container);
     });
-    document.body.append(container);
+    main.append(container);
 }
