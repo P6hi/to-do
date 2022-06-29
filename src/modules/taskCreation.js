@@ -9,7 +9,7 @@ export function taskCreation(projectContainer, project) {
     const description = prompt('Description:', '');
     const dueDate = prompt('Due date:', '');
     const priority = prompt('Priority:', '');
-    const task = taskCreator(title, description, dueDate, priority);
+    const task = taskCreator(title, `Description: ${description}`, `Due date: ${dueDate}`, `Priority: ${priority}`);
     addToProject(proj, task);
     createTaskHTML(projContainer, proj, task);
 }
