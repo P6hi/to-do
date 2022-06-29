@@ -54,6 +54,7 @@ header {
         &:hover,
         &:focus {
             transform: scale(1.05);
+            outline: none;
         }
     }
 }
@@ -72,12 +73,70 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+    overflow: auto;
 }
 
 .project-container {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 20px;
+    display: grid;
     padding: 1rem;
     margin: 1rem;
+    height: 300px;
+    overflow: auto;
+    resize: both;
+
+    h2 {
+        margin: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-left: 1rem;
+        li {
+            margin-top: 0.5rem;
+        }
+    }
+
+    .remove-btn {
+        color: red;
+        font-size: 2rem;
+        text-align: center;
+        width: max-content;
+        height: max-content;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        background: none;
+        grid-row-start: 1;
+        grid-column-start: 3;
+        justify-self: end;
+    }
+
+    .add-btn {
+        height: max-content;
+        width: max-content;
+        grid-row-start: 1;
+        grid-column-start: 2;
+        justify-self: center;
+    }
+
+    button {
+        margin: 1rem;
+        border-radius: 20px;
+        padding: 1rem;
+        font-size: 1rem;
+        border: 1px solid black;
+        background: transparent;
+        cursor: pointer;
+        transform: scale(1);
+        transition: scale, 0.5s;
+
+        &:hover,
+        &:focus {
+            transform: scale(1.05);
+            outline: none;
+        }
+    }
 }
