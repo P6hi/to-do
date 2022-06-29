@@ -11,5 +11,5 @@ export function taskCreation(projectContainer, project) {
     const priority = prompt('Priority:', '');
     const task = taskCreator(title, description, dueDate, priority);
     addToProject(proj, task);
-    createTaskHTML(projContainer, task);
+    createTaskHTML(projContainer, proj, task);
 }
