@@ -1,4 +1,4 @@
-function taskCreator (title, description, dueDate, priority) {
+export function taskCreator (title, description, dueDate, priority) {
     return {
         title,
         description,

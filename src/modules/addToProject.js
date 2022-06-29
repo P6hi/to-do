@@ -1,3 +1,3 @@
-function addToProject(project, task) {
+export function addToProject(project, task) {
     project.tasks.push(task);
 }
