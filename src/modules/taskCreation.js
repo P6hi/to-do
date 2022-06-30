@@ -5,11 +5,29 @@ import { addToProject } from "./addToProject";
 export function taskCreation(projectContainer, project) {
     const proj = project;
     const projContainer = projectContainer;
-    const title = prompt('Task name:', '');
-    const description = prompt('Description:', '');
-    const dueDate = prompt('Due date:', '');
-    const priority = prompt('Priority:', '');
-    const task = taskCreator(title, `Description: ${description}`, `Due date: ${dueDate}`, `Priority: ${priority}`);
-    addToProject(proj, task);
-    createTaskHTML(projContainer, proj, task);
+    const taskSubmit = document.querySelector('.task-form');
+    if (taskSubmit.classList.contains('visible')) {
+        taskSubmit.classList.remove('visible');
+    } else {
+        taskSubmit.classList.add('visible');
+    }
+
+    taskSubmit.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.querySelector('#task');
+        const description = document.querySelector('#desc');
+        const dueDate = document.querySelector('#due-date');
+        const radioBtns = document.querySelectorAll('input[type="radio"]');
+        const priority = (function() { 
+            for (let i = 0; i < radioBtns.length; i++) {
+                if (radioBtns[i].checked) {
+                    return (radioBtns[i].value);
+                }
+            }
+        })();
+        const task = taskCreator(title.value + ':', `Description: ${description.value}`, `Due date: ${dueDate.value}`, `Priority: ${priority}`);
+        addToProject(proj, task);
+        createTaskHTML(projContainer, proj, task);
+        taskSubmit.classList.remove('visible');
+    });
 }
