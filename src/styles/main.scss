@@ -75,10 +75,16 @@ main {
     display: grid;
     overflow: auto;
     position: relative;
+    justify-items: center;
 }
 
 .project-container {
-    border: 1px solid black;
+    color: white;
+    background: linear-gradient(45deg, rgb(100, 100, 255), rgb(77, 218, 131));
+    background-size: 400% 400%;
+    animation: header 10s infinite;
+    height: 400px;
+    width: max(300px, 50%);
     border-radius: 20px;
     display: grid;
     padding: 1rem;
@@ -86,7 +92,6 @@ main {
     height: 300px;
     overflow: auto;
     resize: both;
-
     h2 {
         margin: 1rem;
     }
@@ -102,6 +107,7 @@ main {
 
     .remove-btn {
         color: red;
+        opacity: 0.5;
         font-size: 2rem;
         text-align: center;
         width: max-content;
@@ -128,7 +134,8 @@ main {
         border-radius: 20px;
         padding: 1rem;
         font-size: 1rem;
-        border: 1px solid black;
+        border: 2px solid white;
+        color: white;
         background: transparent;
         cursor: pointer;
         transform: scale(1);
@@ -145,7 +152,6 @@ main {
 .project-form {
     color: white;
     position: absolute;
-    z-index: 2;
     border-radius: 20px;
     background: linear-gradient(45deg, rgb(100, 100, 255), rgb(77, 218, 131));
     background-size: 400% 400%;
