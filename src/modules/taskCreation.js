@@ -25,6 +25,7 @@ export function taskCreation(projectContainer, project) {
                 }
             }
         })();
+        if (title.value && dueDate) {
         const task = taskCreator(title.value + ':', `Description: ${description.value}`, `Due date: ${dueDate.value}`, `Priority: ${priority}`);
         addToProject(proj, task);
         createTaskHTML(projContainer, proj, task);
@@ -34,6 +35,7 @@ export function taskCreation(projectContainer, project) {
         dueDate.value = '';
         for (let j = 0; j < radioBtns.length; i++) {
             radioBtns[i].checked = false;
+        }
         }
     });
 }
