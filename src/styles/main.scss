@@ -161,14 +161,16 @@ main {
     padding: 2rem;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s;
     input {
+        padding: 0.5rem;
+        font-size: 1rem;
         border: none;
         background: rgba(256, 256, 256, 0.5);
-        border-radius: 5px;
+        border-radius: 10px;
         transition: background 0.5s;
         cursor: pointer;
         &:hover,
@@ -182,9 +184,11 @@ main {
         color: black;
         border: none;
         background: rgba(256, 256, 256, 0.5);
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
         transition: background, 0.5s;
+        padding: 0.5rem;
+        font-size: 1rem;
         &:hover,
         &:focus {
             background: rgba(256, 256, 256, 0.7);
@@ -195,4 +199,60 @@ main {
 .visible {
     pointer-events: auto;
     opacity: 1;
+}
+
+.task-form {
+    color: white;
+    position: absolute;
+    border-radius: 20px;
+    background: linear-gradient(45deg, rgb(100, 100, 255), rgb(77, 218, 131));
+    background-size: 400% 400%;
+    animation: header 10s infinite;
+    display: grid;
+    gap: 1rem;
+    padding: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    input,
+    textarea {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: none;
+        background: rgba(256, 256, 256, 0.5);
+        border-radius: 10px;
+        transition: background 0.5s;
+        cursor: pointer;
+        &:hover,
+        &:focus {
+            background: rgba(256, 256, 256, 0.7);
+            outline: none;
+        }
+    }
+    textarea {
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    }
+
+    fieldset {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 0.5rem;
+        font-size: 1rem;
+        color: black;
+        border: none;
+        background: rgba(256, 256, 256, 0.5);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background, 0.5s;
+        &:hover,
+        &:focus {
+            background: rgba(256, 256, 256, 0.7);
+        }
+    }
 }
