@@ -196,14 +196,10 @@ main {
     } 
 }
 
-.visible {
-    pointer-events: auto;
-    opacity: 1;
-}
-
 .task-form {
     color: white;
     position: absolute;
+    z-index: 5;
     border-radius: 20px;
     background: linear-gradient(45deg, rgb(100, 100, 255), rgb(77, 218, 131));
     background-size: 400% 400%;
@@ -255,4 +251,9 @@ main {
             background: rgba(256, 256, 256, 0.7);
         }
     }
+}
+
+.visible {
+    pointer-events: auto;
+    opacity: 1;
 }
