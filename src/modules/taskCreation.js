@@ -29,5 +29,11 @@ export function taskCreation(projectContainer, project) {
         addToProject(proj, task);
         createTaskHTML(projContainer, proj, task);
         taskSubmit.classList.remove('visible');
+        title.value = '';
+        description.value = '';
+        dueDate.value = '';
+        for (let j = 0; j < radioBtns.length; i++) {
+            radioBtns[i].checked = false;
+        }
     });
 }
