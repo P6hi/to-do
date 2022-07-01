@@ -12,10 +12,11 @@ export function createProjectCard(projectList, project, index) {
     container.append(addTaskBtn);
     container.append(removeBtn);
     addTaskBtn.addEventListener('click', () => {
-        taskCreation(container, project);
-    })
+        taskCreation(projectList, container, project);
+    });
     removeBtn.addEventListener('click', () => {
         removeProject(projectList, index, container);
     });
     main.append(container);
+    return container;
 }

@@ -1,19 +1,16 @@
 import { taskCreator } from "./taskCreator";
 import { createTaskHTML } from "./createTaskHTML";
 import { addToProject } from "./addToProject";
+import { createTaskForm } from "./createTaskForm";
 
-export function taskCreation(projectContainer, project) {
-    const proj = project;
-    const projContainer = projectContainer;
-    const taskSubmit = document.querySelector('.task-form');
-    if (taskSubmit.classList.contains('visible')) {
-        taskSubmit.classList.remove('visible');
-    } else {
-        taskSubmit.classList.add('visible');
-    }
+export function taskCreation(projectList, projectContainer, project) {
 
+    const taskSubmit = createTaskForm();
+    taskSubmit.classList.add('visible');
     taskSubmit.addEventListener('submit', (e) => {
         e.preventDefault();
+        const projList = projectList;
+        const projContainer = projectContainer;
         const title = document.querySelector('#task');
         const description = document.querySelector('#desc');
         const dueDate = document.querySelector('#due-date');
@@ -25,17 +22,15 @@ export function taskCreation(projectContainer, project) {
                 }
             }
         })();
-        if (title.value && dueDate) {
+
         const task = taskCreator(title.value + ':', `Description: ${description.value}`, `Due date: ${dueDate.value}`, `Priority: ${priority}`);
-        addToProject(proj, task);
-        createTaskHTML(projContainer, proj, task);
+        
+        let taskIndex = addToProject(project, task);
+        createTaskHTML(projList, projContainer, project, task, taskIndex);
+        localStorage.setItem('projectList', JSON.stringify(projectList));
+        
         taskSubmit.classList.remove('visible');
-        title.value = '';
-        description.value = '';
-        dueDate.value = '';
-        for (let j = 0; j < radioBtns.length; i++) {
-            radioBtns[i].checked = false;
-        }
-        }
+        taskSubmit.reset();
+        taskSubmit.remove();
     });
 }

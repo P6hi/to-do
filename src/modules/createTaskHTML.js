@@ -1,7 +1,7 @@
 import { elementCreator } from "./elementCreator";
 import { removeTask } from "./removeTask";
 
-export function createTaskHTML(projContainer, project, task) {
+export function createTaskHTML(projectList, projContainer, project, task, taskIndex) {
     const taskContainer = elementCreator('div', 'task-container');
     const taskList = elementCreator('ul', 'task-header');
     const taskTitle = elementCreator('h3', 'task-header', task.title);
@@ -17,6 +17,6 @@ export function createTaskHTML(projContainer, project, task) {
     taskContainer.append(removeBtn);
     projContainer.append(taskContainer);
     removeBtn.addEventListener('click', () => {
-        removeTask(project, taskContainer);
+        removeTask(projectList, project, taskContainer, taskIndex);
     });
 }
