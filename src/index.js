@@ -1,7 +1,9 @@
 import './styles/main.scss';
 import { projectCreation } from './modules/projectCreation';
+import { createProjectCard } from './modules/createProjectCard';
+import { createTaskHTML } from './modules/createTaskHTML';
 
-const projects = [];
+let projects = [];
 const projCreate = projectCreation;
 const createBtn = document.querySelector('#create-project');
 
@@ -21,4 +23,20 @@ createBtn.addEventListener('click', () => {
             formSubmit.classList.remove('visible');
         }
     });
+});
+
+window.addEventListener('load', () => {
+    const updater = (function () { 
+        projects = JSON.parse(localStorage.getItem('projectList'));
+        if (projects && projects.length > 0) {
+            for (let i = 0; i < projects.length; i++) {
+                let container = createProjectCard(projects, projects[i], projects.indexOf(projects[i]));
+                for (let j = 0; j < projects[i].tasks.length; j++) {
+                    createTaskHTML(projects, container, projects[i], projects[i].tasks[j]);
+                }
+            }
+        } else {
+            projects = [];
+        }
+    })();
 });
