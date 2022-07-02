@@ -30,9 +30,18 @@ window.addEventListener('load', () => {
     projects = JSON.parse(localStorage.getItem('projectList'))
     if (projects && projects.length > 0) {
       for (let i = 0; i < projects.length; i++) {
-        const container = createProjectCard(projects, projects[i], projects.indexOf(projects[i]))
+        const container = createProjectCard(
+          projects,
+          projects[i],
+          projects.indexOf(projects[i])
+        )
         for (let j = 0; j < projects[i].tasks.length; j++) {
-          createTaskHTML(projects, container, projects[i], projects[i].tasks[j])
+          createTaskHTML(
+            projects,
+            container,
+            projects[i],
+            projects[i].tasks[j]
+          )
         }
       }
     } else {

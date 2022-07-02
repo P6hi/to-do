@@ -5,7 +5,11 @@ import { taskCreation } from './taskCreation'
 export function createProjectCard (projectList, project, index) {
   const main = document.querySelector('main')
   const container = elementCreator('div', 'project-container')
-  const projectHeader = elementCreator('h2', 'project-header', `Project: ${project.title}`)
+  const projectHeader = elementCreator(
+    'h2',
+    'project-header',
+    `Project: ${project.title}`
+  )
   const removeBtn = elementCreator('button', 'remove-btn', '✕')
   const addTaskBtn = elementCreator('button', 'add-btn', 'Add a task')
   container.append(projectHeader)

@@ -17,12 +17,17 @@ export function taskCreation (projectList, projectContainer, project) {
     const priority = (function () {
       for (let i = 0; i < radioBtns.length; i++) {
         if (radioBtns[i].checked) {
-          return (radioBtns[i].value)
+          return radioBtns[i].value
         }
       }
     })()
 
-    const task = taskCreator(title.value + ':', `Description: ${description.value}`, `Due date: ${dueDate.value}`, `Priority: ${priority}`)
+    const task = taskCreator(
+      title.value + ':',
+      `Description: ${description.value}`,
+      `Due date: ${dueDate.value}`,
+      `Priority: ${priority}`
+    )
 
     const taskIndex = addToProject(project, task)
     createTaskHTML(projList, projContainer, project, task, taskIndex)
